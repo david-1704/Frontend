@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cursos de Programación</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <style>
+        /* Agregamos las animaciones aquí */
+        @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
+        @keyframes slideIn {
+            0% {transform: translateY(-50px);}
+            100% {transform: translateY(0);}
+        }
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-contenido {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        .cerrar {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .cerrar:hover,
+        .cerrar:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 <link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
@@ -13,12 +61,12 @@
     </div>
     <nav>
         <ul>
-            <li><a href="">Inicio</a></li>
-            <li><a href="">Cursos</a></li>
-            <li><a href="">Sobre nosotros</a></li>
+            <li><a id="inicio-btn" href="#inicio">Inicio</a></li>
+            <li><a id="cursos-btn" href="#cursos">Cursos</a></li>
+            <li><a id="sobre-nosotros-btn" href="#sobre-nosotros">Sobre nosotros</a></li>
         </ul>
     </nav>
-    <div class="descripcion">
+    <div id="inicio" class="descripcion">
         <p>Somos una escuela dedicada a la enseñanza de programación en línea. Ofrecemos una variedad de cursos que cubren diferentes lenguajes de programación y tecnologías.</p>
     </div>
     <header>
@@ -39,57 +87,63 @@
             <p>100 Courses</p>
         </section>
     </main>
-    <div class="contenido">
+    <div id="cursos" class="contenido">
         <div class="articulo">
             <div>
                 <h2>Curso de JavaScript</h2>
                 <p>Aprende JavaScript desde cero con nuestro curso interactivo.</p>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Curso de JavaScript">
+                <button id="btn-javascript">Ver más</button>
             </div>
             <div>
                 <h2>Curso de Python</h2>
                 <p>Domina Python y sus aplicaciones en ciencia de datos con nuestro curso.</p>
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/4e105f96750899.5eb54f337fb8e.png" alt="Curso de Python">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="Curso de Python">
+                <button id="btn-python">Ver más</button>
             </div>
             <div>
                 <h2>Curso de Java</h2>
                 <p>Conviértete en un experto en Java con nuestro curso completo.</p>
                 <img src="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg" alt="Curso de Java">
+                <button id="btn-java">Ver más</button>
+            </div>
+            <div>
+                <h2>Curso de HTML</h2>
+                <p>Aprende los fundamentos de HTML para crear páginas web.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" alt="Curso de HTML">
+                <button id="btn-html">Ver más</button>
+            </div>
+            <div>
+                <h2>Curso de CSS</h2>
+                <p>Domina CSS para dar estilo y diseño a tus páginas web.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919826.png" alt="Curso de CSS">
+                <button id="btn-css">Ver más</button>
+            </div>
+            <div>
+                <h2>Curso de React</h2>
+                <p>Descubre el poder de React para crear aplicaciones web interactivas.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="Curso de React">
+                <button id="btn-react">Ver más</button>
+            </div>
+            <div>
+                <h2>Curso de PHP</h2>
+                <p>Aprende a desarrollar aplicaciones web dinámicas con PHP.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1200px-PHP-logo.svg.png" alt="Curso de PHP">
+                <button id="btn-php">Ver más</button>
+            </div>
+            <div>
+                <h2>Curso de Ruby</h2>
+                <p>Explora el mundo de Ruby y desarrolla aplicaciones web elegantes y eficientes.</p>
+                <img src="https://cdn.worldvectorlogo.com/logos/ruby.svg" alt="Curso de Ruby">
+                <button id="btn-ruby">Ver más</button>
             </div>
             <div>
                 <h2>Curso de C++</h2>
                 <p>Aprende a programar en C++ con nuestro curso completo.</p>
                 <img src="https://logowik.com/content/uploads/images/911_c_logo.jpg" alt="Curso de C++">
+                <button id="btn-cpp">Ver más</button>
             </div>
-  
         </div>
         <div class="secundario">
             <h2>Noticias y actualizaciones</h2>
             <p>Sobre nuestros cursos y la industria de la programación.</p>
-        </div>
-    </div>
-    <div class="testimonios">
-        <h2>Experiencias de los usuarios</h2> 
-        <div class="experiencia">
-            <p>"Este curso de JavaScript me ha ayudado a mejorar mis habilidades de programación." - Usuario</p> 
-        </div>
-        <div class="experiencia">
-            <p>"El curso de Python es muy completo y fácil de seguir." - Usuario</p> 
-        </div>
-     
-    </div>
-    <footer>
-        <a href="#top">⬆️</a>
-        <div class="piedepagina">
-            <p>Más información sobre nuestros cursos y programas de enseñanza.</p>
-            <p>Contacto: info@tusitio.com</p>
-            <p>
-                <a href="https://www.facebook.com/tusitio">Facebook</a> |
-                <a href="https://www.twitter.com/tusitio">Twitter</a> |
-                <a href="https://www.instagram.com/tusitio">Instagram</a>
-            </p>
-        </div>
-    </footer>
-<script type="text/javascript" src="js/script.js"></script>
-</body>
-</html>
